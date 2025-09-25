@@ -9,6 +9,7 @@ public:
     int original_base;
     int target_base;
     int int_base10;
+	double double_10;
     Input(string n_int, string n_double, int o, int t) {
         number_int = n_int;
         number_double = n_double;
@@ -18,6 +19,7 @@ public:
     }
     void test();
     void intToBase10();
+	void DoubleToBase10();
 };
 void Input::test() {
     cout << number_int <<' '<< number_double << ' ' << original_base << ' ' << target_base << endl;
@@ -31,7 +33,7 @@ void Input::intToBase10() {//整數部分轉10進位
         int_base10 = int_base10 * original_base + digit;
     }
 }
-void Input::Base10ToStr(){
+void Input::Base10ToStr(){//整數部分轉目標進位
 	string s;
 	if (int_base10 == 0) return "0";
     string s = "";
@@ -43,6 +45,10 @@ void Input::Base10ToStr(){
             s = char('0' + remainder) + s;        
         int_base10 /= target_base;              
     }
+}
+void Input::DoubleToBase10(){
+	double_10=0;
+	
 }
 Input get_input() {//分割輸入
     char s[1000];
