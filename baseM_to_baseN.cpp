@@ -31,6 +31,19 @@ void Input::intToBase10() {//整數部分轉10進位
         int_base10 = int_base10 * original_base + digit;
     }
 }
+void Input::Base10ToStr(){
+	string s;
+	if (int_base10 == 0) return "0";
+    string s = "";
+    while (int_base10 > 0) {
+        int remainder = int_base10 % target_base;
+        if (remainder > 9) 
+            s = char('A' + (remainder - 10)) + s;
+        else 
+            s = char('0' + remainder) + s;        
+        int_base10 /= target_base;              
+    }
+}
 Input get_input() {//分割輸入
     char s[1000];
     cin.getline(s, 1000);
