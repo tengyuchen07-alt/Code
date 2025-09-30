@@ -90,7 +90,8 @@ int main()
         Input n = get_input();
         n.intToBase10();
         n.DoubleToBase10();
-        n.Base10ToTarget();
+        n.Base10ToTarget_int();
+        n.Base10ToTarget_double();
         n.test();
     }
     catch (exception& e) {
