@@ -51,8 +51,8 @@ void Input::Base10ToTarget_int() {
     result_int = "";
     while (int_base10 > 0) {
         int digit = int_base10 % target_base;
-        if (digit > 9)result.insert(result.begin(), 'A' - (digit - 10));
-        else result.insert(result.begin(), '0' + digit);
+        if (digit > 9)result_int.insert(result_int.begin(), 'A' - (digit - 10));
+        else result_int.insert(result_int.begin(), '0' + digit);
         int_base10 /= target_base;
     }
 }
