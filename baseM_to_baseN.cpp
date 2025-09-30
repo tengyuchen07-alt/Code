@@ -47,7 +47,7 @@ void Input::DoubleToBase10() {//小數部分轉10進位
         double_base10 += digit * pow(original_base, -i);
     }
 }
-void Input::Base10ToTarget_int() {
+void Input::Base10ToTarget_int() {//10進位轉目標進位
     result_int = "";
     while (int_base10 > 0) {
         int digit = int_base10 % target_base;
@@ -56,9 +56,9 @@ void Input::Base10ToTarget_int() {
         int_base10 /= target_base;
     }
 }
-void Input::Base10ToTarget_double() {
+void Input::Base10ToTarget_double() {//10進位轉目標進位
 	result_double = "";
-    while (double_base10 > 0 || result_double.length() <= 20) {
+    while (double_base10 > 0 && result_double.length() <= 20) {
         double_base10 *= target_base;
         int digit = (int)double_base10;
         if (digit > 9)result_double.push_back('A' - (digit - 10));
