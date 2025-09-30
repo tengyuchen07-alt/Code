@@ -27,7 +27,7 @@ public:
     void Base10ToTarget_double();
 };
 void Input::test() {
-    cout << (positive?result:'-'+result_int) <<'.'<<result_double << endl;
+    cout << (positive?result_int:'-'+result_int) <<'.'<<result_double << endl;
 }
 void Input::intToBase10() {//整數部分轉10進位
     int_base10 = 0;
