@@ -1,9 +1,12 @@
+//1121631鄧宇辰
 #include <iostream>
 #include<cstring>
 #include<string>
+#include<unordered_map>
 using namespace std;
 class Input {
 public:
+	bool repeating;
     bool positive;
     string number_int;
     string number_double;
@@ -57,13 +60,26 @@ void Input::Base10ToTarget_int() {//10進位轉目標進位
     }
 }
 void Input::Base10ToTarget_double() {//10進位轉目標進位
+	unordered_map<string, int> seen;
 	result_double = "";
-    while (double_base10 > 0 && result_double.length() <= 20) {
+	
+    int i = 0;
+    while (double_base10 > 0 && result_double.length() <= 40) {
         double_base10 *= target_base;
         int digit = (int)double_base10;
+        double_base10 -= digit;
+        string s = to_string(double_base10);
+        if (seen.count(s)) {
+            repeating = true;
+            break;
+        }
+        else seen[s] = i++;
         if (digit > 9)result_double.push_back('A' - (digit - 10));
         else result_double.push_back('0' + digit);
-		double_base10 -= digit;
+    }
+    if (repeating) {
+        result_double.insert(i , "[");
+        result_double.push_back(']');
     }
 }
 Input get_input() {//分割輸入
